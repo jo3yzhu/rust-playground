@@ -9,7 +9,7 @@ mod tests {
 
     #[test]
     fn box_borrow_test() {
-        let mut ptr = Box::new(233);
+        let _ptr = Box::new(233);
 
         /*
         {
