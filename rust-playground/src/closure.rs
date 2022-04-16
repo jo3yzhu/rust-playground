@@ -116,4 +116,26 @@ mod tests {
         // closure can be only moved
         // let c2 = closure;
     }
+
+    #[test]
+    fn copy_clone_traits_test() {
+        // copy trait is implemented for &str
+        // rust can simply call memcpy to copy it due to it owns no external resource
+        let s = "hello";
+        let ss = s;
+
+        let sp = s.as_ptr();
+        let sp = format!("{:p}", sp);
+        let ssp = ss.as_ptr();
+        let ssp = format!("{:p}", ssp);
+
+        assert_eq!(sp.to_string(), ssp.to_string());
+
+        let sss = s.clone();
+        let sssp = sss.as_ptr();
+        let sssp = format!("{:p}", sssp);
+
+        // &str is kind of static, behavior of clone and copy is the same
+        assert_eq!(sp.to_string(), sssp.to_string());
+    }
 }
