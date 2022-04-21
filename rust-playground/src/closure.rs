@@ -111,7 +111,7 @@ mod tests {
         // is_Fn(&closure);
         // is_FnMut(&closure);
 
-        assert_eq!(closure(&mut obj1), 25);
+        assert_eq!(closure(&mut obj1), 15);
 
         // closure can be only moved
         // let c2 = closure;
